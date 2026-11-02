@@ -1,0 +1,16 @@
+name: doctests
+on:
+  push:
+    branches: ['*']
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run tests
+        run: |
+          python -m doctest --verbose markdown_compiler/__init__.py
+          python -m doctest --verbose markdown_compiler/util/line_functions.py

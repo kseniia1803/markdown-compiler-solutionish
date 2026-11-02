@@ -1,0 +1,17 @@
+name: command_line
+on:
+  push:
+    branches: ['*']
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run tests
+        run: |
+          pip3 install .
+          markdown-compiler --input_file=README.md
+          markdown-compiler --input_file=README.md --add_css

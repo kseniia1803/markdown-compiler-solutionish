@@ -3,7 +3,7 @@
 """
 Command line interface for the markdown compiler.
 """
-from markdown_compiler import *
+from markdown_compiler import convert_file
 
 
 def main():
